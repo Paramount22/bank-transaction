@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap');
+
+:root {
+  --main-color: #f36f20;
+  --second-color: #4d4d4d;
+  --third-color: #ced4da;
+  --plus-color: #1f9960;
+  --minus-color: #c22835;
+  --box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--second-color);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-color);
+  color: white;
+  height: 10vh;
+}
+
+.container {
+  margin: 2rem auto;
+  width: 30%;
+}
+
+.account-balance {
+  border: 3px dotted var(--third-color);
+  display: inline-block;
+  padding: 1rem;
+  font-size: x-large;
+  border-radius: 0.125rem;
+}
+
+.inc-exp-container {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  box-shadow: var(--box-shadow);
+  font-size: larger;
+}
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid var(--third-color);
+}
+
+.list-transactions {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  border-bottom: 1px solid var(--third-color);
+  padding-bottom: 0.5rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.list li {
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1.125rem;
+}
+
+.plus {
+  color: var(--plus-color);
+}
+
+.minus {
+  color: var(--minus-color);
+}
+
+.list li.plus {
+  border-right: 5px solid var(--plus-color);
+}
+
+.list li.minus {
+  border-right: 5px solid var(--minus-color);
+}
+
+.delete-btn {
+  background-color: var(--main-color);
+  border: none;
+  font-size: 1.3rem;
+  color: white;
+  line-height: 20px;
+  padding: 11px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+.form {
+  margin-top: 1rem;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid var(--third-color);
+  outline: 0;
+  font-size: 1.2rem;
+  color: var(--second-color);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--second-color);
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(
+    to right,
+    var(--main-color),
+    var(--third-color)
+  );
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+  box-shadow: none;
+}
+
+.btn {
+  background-color: var(--main-color);
+  box-shadow: var(--box-shadow);
+  color: white;
+  display: block;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  margin: 20px 0 30px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: var(--second-color);
+}
+
+@keyframes rotateInDownLeft {
+  from {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.rotateInDownLeft {
+  animation: rotateInDownLeft 0.4s ease;
+}
+
+@keyframes rotateOutDownRight {
+  from {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    opacity: 1;
+  }
+
+  to {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+  }
+}
+
+.rotateOutDownRight {
+  animation: rotateOutDownRight 0.5s ease;
+}
+
+@keyframes backInLeft {
+  0% {
+    -webkit-transform: translateX(-2000px) scale(0.7);
+    transform: translateX(-2000px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: translateX(0px) scale(0.7);
+    transform: translateX(0px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.backInLeft {
+  animation: backInLeft 0.7s ease;
+}

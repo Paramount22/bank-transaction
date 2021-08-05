@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Bankové transakcie</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bankové transakcie</h1>
+    </header>
+
+    <section class="container">
+      <div class="account-balance">
+        <h4>Zostatok</h4>
+        <h2 id="balance">0.00 €</h2>
+      </div>
+
+      <div class="inc-exp-container">
+        <div>
+          <h4>Príjem</h4>
+          <p id="money-plus" class="money plus">+ 0.00 €</p>
+        </div>
+
+        <div>
+          <h4>Výdaj</h4>
+          <p id="money-minus" class="money minus">- 0.00 €</p>
+        </div>
+      </div>
+
+      <div class="list-transactions">
+        <h3>Zoznam transakcií</h3>
+        <ul id="list" class="list">
+          <!--  <li class="minus">
+            Cash <span>-400 €</span>
+            <button class="delete-btn">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </li> -->
+        </ul>
+      </div>
+
+      <h3>Nová transakcia</h3>
+      <form id="form" class="form">
+        <div class="form__group field">
+          <input
+            type="input"
+            class="form__field"
+            placeholder="Názov položky"
+            name="text"
+            id="text"
+            required
+          />
+          <label for="text" class="form__label">Názov položky</label>
+        </div>
+
+        <div class="form__group field">
+          <input
+            type="number"
+            class="form__field"
+            placeholder="Suma (negatívne - výdaj, positívne - príjem)"
+            name="amount"
+            id="amount"
+            required
+          />
+          <label for="amount" class="form__label"
+            >Suma (negatívne - výdaj, positívne - príjem)</label
+          >
+        </div>
+
+        <button class="btn">Pridať transakciu</button>
+      </form>
+    </section>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
